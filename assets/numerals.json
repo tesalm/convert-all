@@ -1,0 +1,86 @@
+{
+  "numerals": {
+    "units": {
+      "measure": "Numerals",
+      "sys_id": ["POSY"],
+      "POSY_id":["bin","ter","quat","quin","sena","sept","oct","nonary","dec","udec","duodec","tridec","tetradec","pentadec","hexadec"],
+      "systems": ["Positional systems"],
+      "POSY": ["Binary","Ternary","Quaternary","Quinary","Senary","Septenary","Octal","Nonary","Decimal","Undecimal","Duodecimal","Tridecimal","Tetradecimal","Pentadecimal","Hexadecimal"]
+    },
+    "bin": {
+      "unit": "Binary",
+      "base": 2,
+      "POSY": [2,3,4,5,6,7,8,9,10,11,12,13,14,15,16]
+    },
+    "ter": {
+      "unit": "Ternary",
+      "base": 3,
+      "POSY": [2,3,4,5,6,7,8,9,10,11,12,13,14,15,16]
+    },
+    "quat": {
+      "unit": "Quaternary",
+      "base": 4,
+      "POSY": [2,3,4,5,6,7,8,9,10,11,12,13,14,15,16]
+    },
+    "quin": {
+      "unit": "Quinary",
+      "base": 5,
+      "POSY": [2,3,4,5,6,7,8,9,10,11,12,13,14,15,16]
+    },
+    "sena": {
+      "unit": "Senary",
+      "base": 6,
+      "POSY": [2,3,4,5,6,7,8,9,10,11,12,13,14,15,16]
+    },
+    "sept": {
+      "unit": "Septenary",
+      "base": 7,
+      "POSY": [2,3,4,5,6,7,8,9,10,11,12,13,14,15,16]
+    },
+    "oct": {
+      "unit": "Octal",
+      "base": 8,
+      "POSY": [2,3,4,5,6,7,8,9,10,11,12,13,14,15,16]
+    },
+    "nonary": {
+      "unit": "Nonary",
+      "base": 9,
+      "POSY": [2,3,4,5,6,7,8,9,10,11,12,13,14,15,16]
+    },
+    "dec": {
+      "unit": "Decimal",
+      "base": 10,
+      "POSY": [2,3,4,5,6,7,8,9,10,11,12,13,14,15,16]
+    },
+    "udec": {
+      "unit": "Undecimal",
+      "base": 11,
+      "POSY": [2,3,4,5,6,7,8,9,10,11,12,13,14,15,16]
+    },
+    "duodec": {
+      "unit": "Duodecimal",
+      "base": 12,
+      "POSY": [2,3,4,5,6,7,8,9,10,11,12,13,14,15,16]
+    },
+    "tridec": {
+      "unit": "Tridecimal",
+      "base": 13,
+      "POSY": [2,3,4,5,6,7,8,9,10,11,12,13,14,15,16]
+    },
+    "tetradec": {
+      "unit": "Tetradecimal",
+      "base": 14,
+      "POSY": [2,3,4,5,6,7,8,9,10,11,12,13,14,15,16]
+    },
+    "pentadec": {
+      "unit": "Pentadecimal",
+      "base": 15,
+      "POSY": [2,3,4,5,6,7,8,9,10,11,12,13,14,15,16]
+    },
+    "hexadec": {
+      "unit": "Hexadecimal",
+      "base": 16,
+      "POSY": [2,3,4,5,6,7,8,9,10,11,12,13,14,15,16]
+    }
+  }
+}
