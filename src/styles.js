@@ -226,6 +226,13 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     textAlign: 'center',
   },
+  headerBarTitle: {
+    color: light_gray,
+    fontSize: 18,
+    fontWeight: 'bold',
+    justifyContent: 'center',
+    textAlign: 'center',
+  },
   resultsContainer: {
     flex: 1,
     marginVertical: 3

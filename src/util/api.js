@@ -19,8 +19,9 @@ async function getExchangeRatesApi(base) {
 }
 
 function getExchangeRatesApiAsync(base) {
-  return fetch('https://api.exchangerate.host/latest?base=' + base)
-    .then((response) => response.json())
+  return fetch('https://api.exchangerate.host/latest?base=' + base, {
+      headers: {'Cache-Control': 'no-cache'}
+    }).then((response) => response.json())
     .then((responseJson) => {
       if (responseJson.rates) {
         var data = [];

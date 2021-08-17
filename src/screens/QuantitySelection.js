@@ -8,7 +8,7 @@ import quantitysJson from '../../assets/quantity.json';
 import timezonesJson from '../../assets/timezone.json';
 import { styles } from '../styles';
 import { imgs } from '../general/images';
-import CustomHeaderBar from './headerBar';
+import CustomHeaderBar from '../components/HeaderBar';
 import { quantitySelectionHandler } from '../redux/actions';
 
 
@@ -38,7 +38,7 @@ export class QuantitySelectionView extends React.PureComponent {
     const { measure, navigation } = this.props;
     return (
       <>
-      <CustomHeaderBar navigation={navigation} toTop={this.toTop}/>
+      <CustomHeaderBar navigation={navigation} title={'Measurements'} toTop={this.toTop}/>
       <View style={styles.container}>
         <ScrollView ref={this.scrollViewRef}>
           <View style={[styles.headerWithIcon, {marginTop:10}]}>

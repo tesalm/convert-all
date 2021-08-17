@@ -22,7 +22,6 @@ const appReducer = (state = initialState, action) => {
       };
     case ActionTypes.RequestCurrencyDataSuccess:
       return {
-        ...state,
         loading: false,
         error: undefined,
         data: action.data,
@@ -57,7 +56,6 @@ const appReducer = (state = initialState, action) => {
       var val = '1';
       if (action.unitId === 'dec') val = '100';
       return {
-        ...state,
         loading: false,
         error: undefined,
         data: action.data,
@@ -68,7 +66,6 @@ const appReducer = (state = initialState, action) => {
       };
     case ActionTypes.TimezoneSelection:
       return {
-        ...state,
         loading: false,
         error: undefined,
         data: action.data,

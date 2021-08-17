@@ -3,13 +3,13 @@ import { Image, Text, TextInput, TouchableOpacity, View } from 'react-native';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
-import { updateInput } from './redux/actions';
-import { MeasureTypes } from './general/measure-types';
-import { imgs } from './general/images';
-import PrecisionPicker from './components/precisionPicker';
-import ResultsView from './components/results';
-import { styles } from './styles';
-import { setTime } from './util/timezone';
+import { updateInput } from '../redux/actions';
+import { MeasureTypes } from '../general/measure-types';
+import { imgs } from '../general/images';
+import PrecisionPicker from '../components/PrecisionPicker';
+import ResultsView from '../components/Results';
+import { styles } from '../styles';
+import { setTime } from '../util/timezone';
 
 
 export class Main extends React.PureComponent {

@@ -2,11 +2,12 @@ import 'react-native-gesture-handler';
 import React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import { StatusBar, StatusBarIOS } from 'react-native';
 import SplashScreen from 'react-native-splash-screen';
 
-import QuantitySelectionView from './src/components/quantityselection';
-import UnitSelectionView from './src/components/unitselection';
-import Main from './src/main.js';
+import QuantitySelectionView from './src/screens/QuantitySelection';
+import UnitSelectionView from './src/screens/UnitSelection';
+import Main from './src/screens/Main';
 
 
 const Tab = createBottomTabNavigator();
@@ -14,6 +15,9 @@ const Tab = createBottomTabNavigator();
 export default class App extends React.PureComponent {
 
   componentDidMount = async () => {
+    StatusBar.setBarStyle('light-content', false);
+    StatusBar.setBackgroundColor('#000000');
+
     // hold the splash screen a bit longer than the default behavior to avoid white screen flash.
     await new Promise((resolve) => setTimeout(resolve, 500));
     SplashScreen.hide();

@@ -18,5 +18,5 @@ Universal measurement unit conversion tool
 
 ### Screenshots
 <!--![plot](./screenshots/screenshot_main.png)-->
-<img src="./screenshots/screenshot_main.png" height="340"/> <img src="./screenshots/screenshot_units.png" height="340"/> <img src="./screenshots/screenshot_measurements.png" height="340"/> <img src="./screenshots/screenshot_main_tz.png" height="340"/> <img src="./screenshots/screenshot_units_tz.png" height="340"/> <img src="./screenshots/screenshot_main_currency.png" height="340"/>
+<img src="./screenshots/main.png" height="360"/> <img src="./screenshots/units.png" height="360"/> <img src="./screenshots/measurements.png" height="360"/> <img src="./screenshots/main_tz.png" height="360"/> <img src="./screenshots/units_tz.png" height="360"/> <img src="./screenshots/main_currency.png" height="360"/>
 

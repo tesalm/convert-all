@@ -6,7 +6,7 @@ import { bindActionCreators } from 'redux';
 import { styles } from '../styles';
 import { imgs } from '../general/images';
 import { MeasureTypes } from '../general/measure-types';
-import CustomHeaderBar from './headerBar';
+import CustomHeaderBar from '../components/HeaderBar';
 import { unitSelectionHandler } from '../redux/actions';
 
 
@@ -55,6 +55,15 @@ export class UnitSelectionView extends React.PureComponent {
         </TouchableOpacity>}
     </View>
   );
+
+  setTitle = () => {
+    const { measure } = this.props.quantJson.units;
+    if (measure === MeasureTypes.TIMEZONE)
+      return 'Time zones'
+    else if (measure === MeasureTypes.CURRENCY)
+      return 'Currencies'
+    return 'Units'
+  }
 
   toTop = () => {
     this.flatlistRef.current &&
@@ -137,9 +146,11 @@ export class UnitSelectionView extends React.PureComponent {
 
   render() {
     if (this.props.error) return null;
+    const title = this.setTitle();
+    
     return (
       <>
-      <CustomHeaderBar navigation={this.props.navigation} toTop={this.toTop}/>
+      <CustomHeaderBar navigation={this.props.navigation} title={title} toTop={this.toTop}/>
       <View style={styles.container}>
         <FlatList ref={this.flatlistRef}
           data={this.getInitialData()}
