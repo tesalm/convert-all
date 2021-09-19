@@ -70,29 +70,28 @@ export class Main extends React.PureComponent {
     const disable = error || loading ? true : false;
 
     return (
-      <View style={styles.containerWithMargin}>
-        <View style={styles.inputSection}>
-          <View style={styles.inputRow1}>
-            <TouchableOpacity style={disable ? styles.unitSelectionDisabled : styles.unitSelection}
-              disabled={disable}
-              onPress={this.unitsViewNavigator}>
-              <Text numberOfLines={1} style={styles.textBold}>{unit}</Text>
-            </TouchableOpacity>
+      <View style={styles.mainViewContainer}>
+        <View style={styles.inputRow1}>
+          <TouchableOpacity style={disable ? styles.unitSelectionDisabled : styles.unitSelection}
+            disabled={disable}
+            onPress={this.unitsViewNavigator}>
+            <Text numberOfLines={1} style={styles.textBold}>{unit}</Text>
+          </TouchableOpacity>
 
-            <TouchableOpacity style={styles.menuButton} onPress={this.quantitysViewNavigator}>
-              <Image style={styles.menuIcon} source={imgs.menuIcon} />
-            </TouchableOpacity>
-          </View>
+          <TouchableOpacity style={styles.menuButton} onPress={this.quantitysViewNavigator}>
+            <Image style={styles.menuIcon} source={imgs.menuIcon} />
+          </TouchableOpacity>
+        </View>
 
-          <View style={styles.inputRow2}>
-            <TextInput style={styles.textInput}
-              defaultValue={'1'}
-              onChangeText={this.inputHandler}
-              selectTextOnFocus={true}
-              value={input}
-              keyboardType={this.getKeyboardType(unitId)} />
-            <PrecisionPicker selector={this.precisionSelectionHandler} />
-          </View>
+        <View style={styles.inputRow2}>
+          <TextInput style={styles.textInput}
+            defaultValue={'1'}
+            onChangeText={this.inputHandler}
+            selectTextOnFocus={true}
+            value={input}
+            keyboardType={this.getKeyboardType(unitId)}
+          />
+          <PrecisionPicker selector={this.precisionSelectionHandler} />
         </View>
         
         <ResultsView input={input}

@@ -19,12 +19,12 @@ export function requestCurrencyDataFailure(error) {
   };
 }
 
-export function requestCurrencyDataSuccess(data, curr_json, unit_id) {
+export function requestCurrencyDataSuccess(curr_json, unit_id) {
   return {
     type: ActionTypes.RequestCurrencyDataSuccess,
-    data: data,
+    data: curr_json.currenciesArray,
     quantJson: curr_json,
-    unit: curr_json.currencys[unit_id],
+    unit: curr_json.main[unit_id],
     unitId: unit_id,
   };
 }
@@ -39,10 +39,9 @@ export function updateInput(input) {
 const getCurrencyData = (unit_id, curr_json) => async dispatch => {
   dispatch(setLoading());
   try {
-    const data = await getExchangeRatesApiAsync(unit_id);
-    if (data.error) throw data.error;
-    if (!(Array.isArray(data) && data.length)) throw "HTTP GET Request is not responding";
-    dispatch(requestCurrencyDataSuccess(data, curr_json, unit_id));
+    curr_json.main[unit_id] = curr_json.currencies[unit_id];
+    curr_json['index'] = await getExchangeRatesApiAsync(unit_id, curr_json.main);
+    dispatch(requestCurrencyDataSuccess(curr_json, unit_id));
   } catch (error) {
     dispatch(requestCurrencyDataFailure(error));
   }
@@ -95,13 +94,12 @@ export function setTimeZoneData(quant_json) {
 
 const getQuantityData = (quant_json, unit_id) => dispatch => {
   dispatch(setLoading());
-  // Delay this action by fraction of a second
-  setTimeout(() => {dispatch(setQuantityData(quant_json, unit_id))}, 100);
+  setTimeout(() => {dispatch(setQuantityData(quant_json, unit_id))});
 };
 
 const getTimeZoneData = (quant_json) => dispatch => {
   dispatch(setLoading());
-  setTimeout(() => {dispatch(setTimeZoneData(quant_json))}, 100);
+  setTimeout(() => {dispatch(setTimeZoneData(quant_json))});
 };
 
 export function quantitySelectionHandler (quant_json, unit_id, is_currency, is_timezone) {

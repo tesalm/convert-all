@@ -4,14 +4,9 @@ const fb_blue = '#497DB5';
 const light_blue = "#4FC1FF";
 const orange = '#FF850D';
 const light_gray = '#DCDCDC';
-const dark = '#262626';
+const dark = '#222222';
 
 const styles = StyleSheet.create({
-  inputSection: {
-    marginTop: 10,
-    marginBottom: 10,
-    justifyContent: 'center'
-  },
   inputRow1: {
     flexDirection: 'row',
     justifyContent: 'space-between',
@@ -20,7 +15,7 @@ const styles = StyleSheet.create({
   inputRow2: {
     flexDirection: 'row',
     justifyContent: 'space-between',
-    marginBottom: 4
+    marginBottom: 10
   },
   textInput: {
     flex: 1,
@@ -135,19 +130,16 @@ const styles = StyleSheet.create({
     width: 30,
     tintColor: '#4e4e4e'
   },
-  containerWithMargin: {
+  mainViewContainer: {
     flex: 1,
-    paddingTop: 6,
+    padding: 8,
     //paddingTop: StatusBar.currentHeight || 22,
-    paddingHorizontal: 8,
-    paddingBottom: 15,
     backgroundColor: dark
   },
   container: {
     flex: 1,
     paddingHorizontal: 8,
-    paddingTop: 20,
-    paddingBottom: 30,
+    paddingVertical: 20,
     backgroundColor: dark
   },
   precisionPicker: {
@@ -233,33 +225,29 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     textAlign: 'center',
   },
-  resultsContainer: {
+  resultRowOdd: {
     flex: 1,
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    paddingHorizontal: 3,
+    paddingVertical: 6,
     marginVertical: 3
   },
   resultRowEven: {
     flex: 1,
     flexDirection: 'row',
     justifyContent: 'space-between',
-    backgroundColor: '#323232',
+    backgroundColor: '#2D2D2D',
     paddingHorizontal: 3,
-    paddingVertical: 6
-  },
-  resultRowOdd: {
-    flex: 1,
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    paddingHorizontal: 3,
-    paddingVertical: 6
+    paddingVertical: 6,
+    marginVertical: 3
   },
   unit: {
     height: 40,
-    marginTop: 4,
-    marginBottom: 4,
+    marginVertical: 4,
     justifyContent: 'center',
     alignItems: 'center'
   }
-
 });
 
 export { styles };

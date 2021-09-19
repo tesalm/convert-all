@@ -12,7 +12,7 @@ const CustomHeaderBar = (props) => {
 
   return (
     <View style={styles.headerBar}>
-      <TouchableOpacity style={styles.backButton} onPress={() => navigateBack()}>
+      <TouchableOpacity style={styles.backButton} onPress={navigateBack}>
         <Image style={styles.backIcon} source={imgs.backIcon} />
       </TouchableOpacity>
       <Text style={styles.headerBarTitle}>{props.title}</Text>

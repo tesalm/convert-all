@@ -24,7 +24,7 @@ export class UnitSelectionView extends React.PureComponent {
   componentDidMount() {
     if (this.isTimezoneOrCurrency())
       this.setState({ dataHolder: this.props.data });
-  }
+  };
 
   componentDidUpdate(prevProps) {
     const { measure } = this.props.quantJson.units;
@@ -34,27 +34,30 @@ export class UnitSelectionView extends React.PureComponent {
         this.setState({ dataHolder: this.props.data, 
                         search: '', 
                         maxInitialItems: 80 }); }
-  }
+  };
 
   selectionHandler(unit_id) {
     const { quantJson, unitId, actions, navigation } = this.props;
     if (unitId !== unit_id)
       actions.unitSelectionHandler(unit_id, quantJson);
     navigation.navigate("Main");
-  }
-  
-  renderItem = ({ item, index }) => (
-    <View key={index}>
-      {item.header === true ? <Text style={styles.header}>{item.name}</Text> :
-        <TouchableOpacity style={styles.unit}
-                          onPress={() => this.selectionHandler(item.id)}>
-          <Text numberOfLines={1}
-                style={this.props.unitId === item.id ? styles.textSelected : styles.text}>
-            {item.name}
-          </Text>
-        </TouchableOpacity>}
-    </View>
-  );
+  };
+
+  renderItem = ({item, index}) => {
+    if (item.header === true)
+      return <Text style={styles.header}>{item.name}</Text>
+    return (
+      <TouchableOpacity
+        style={styles.unit}
+        onPress={() => this.selectionHandler(item.id)}>
+        <Text
+          numberOfLines={1}
+          style={this.props.unitId === item.id ? styles.textSelected : styles.text}>
+          {item.name}
+        </Text>
+      </TouchableOpacity>
+    );
+  };
 
   setTitle = () => {
     const { measure } = this.props.quantJson.units;
@@ -63,19 +66,19 @@ export class UnitSelectionView extends React.PureComponent {
     else if (measure === MeasureTypes.CURRENCY)
       return 'Currencies'
     return 'Units'
-  }
+  };
 
   toTop = () => {
     this.flatlistRef.current &&
     this.flatlistRef.current.scrollToOffset({ y: 0, animated: false });
-  }
+  };
 
   isTimezoneOrCurrency = () => {
     const { measure } = this.props.quantJson.units;
     if (measure === MeasureTypes.TIMEZONE || measure === MeasureTypes.CURRENCY)
       return true;
     return false;
-  }
+  };
 
   getInitialData = () => {
     const { data } = this.props;
@@ -84,7 +87,7 @@ export class UnitSelectionView extends React.PureComponent {
       return dataHolder.slice(0, maxInitialItems);
     }
     return data.slice(0, maxInitialItems);
-  }
+  };
 
   handleLoadMore = () => {
     this.setState({

@@ -3,7 +3,7 @@ import { ScrollView, Text, TouchableOpacity, View, Image } from 'react-native';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
-import currencysJson from '../../assets/currency.json';
+import currenciesJson from '../../assets/currency.json';
 import quantitysJson from '../../assets/quantity.json';
 import timezonesJson from '../../assets/timezone.json';
 import { styles } from '../styles';
@@ -230,7 +230,7 @@ export class QuantitySelectionView extends React.PureComponent {
             <Text style={this.styleHandler('Angle', measure)}>Angle</Text>
           </TouchableOpacity>
           <TouchableOpacity style={styles.unit}
-            onPress={() => this.selectionHandler(currencysJson, 'EUR', true)}>
+            onPress={() => this.selectionHandler(currenciesJson, 'EUR', true)}>
             <Text style={this.styleHandler('Currency', measure)}>Currency</Text>
           </TouchableOpacity>
           <TouchableOpacity style={styles.unit}

@@ -11,64 +11,47 @@ import { MeasureTypes } from '../general/measure-types';
 const ResultsView = (props) => {
   const flatlistRef = React.useRef();
 
-  const renderItem = ({ item, index }) => (
-    <View key={index} style={styles.resultsContainer}>
-      {item.header === true ? <Text style={styles.header}>{item.name}</Text> :
-        <View style={index % 2 === 1 ? styles.resultRowOdd : styles.resultRowEven}>
-          <Text style={props.unitId === item.id ? styles.resultTextUnitSelected : styles.resultTextUnit}>
-            {item.name}
-          </Text>
-          <Text style={styles.resultTextValue}>
-            {parseResult(item.equation, props.input, props.precision)}
-          </Text>
-        </View>}
-    </View>
-  );
+  const result = (item) => {
+    const {input, precision, unitId, measure} = props;
+    switch (measure) {
+      case MeasureTypes.CURRENCY:
+        return parseCurrencyResult(item.rate, input, precision);
+      case MeasureTypes.TIMEZONE:
+        return toLocaleTimeString(item.id);
+      case MeasureTypes.NUMERAL:
+        return inputToNumeral(input, item.equation, unitId);
+      default:
+        return parseResult(item.equation, input, precision);
+    }
+  };
 
-  const renderNumeralItem = ({ item, index }) => (
-    <View key={index} style={styles.resultsContainer}>
-      <View style={index % 2 === 1 ? styles.resultRowOdd : styles.resultRowEven}>
+  const renderHeader = () => {
+    const {data, measure} = props;
+    if (measure === MeasureTypes.CURRENCY)
+      return (
+        <Text style={styles.footer}>Updated  {data[0].date}</Text>
+      );
+    return null;
+  };
+
+  const renderItem = ({item, index}) => {
+    if (item.header === true)
+      return <Text style={styles.header}>{item.name}</Text>
+    return (
+      <View key={index}
+        style={index % 2 === 1 ? styles.resultRowOdd : styles.resultRowEven}>
         <Text style={props.unitId === item.id ? styles.resultTextUnitSelected : styles.resultTextUnit}>
           {item.name}
         </Text>
-        <Text style={styles.resultTextValue}>
-          {inputToNumeral(props.input, item.equation, props.unitId)}
-        </Text>
+        <Text style={styles.resultTextValue}>{result(item)}</Text>
       </View>
-    </View>
-  );
-
-  const renderTimezoneItem = ({ item, index }) => (
-    <View key={index} style={styles.resultsContainer}>
-      <View style={index % 2 === 1 ? styles.resultRowOdd : styles.resultRowEven}>
-        <Text style={props.unitId === item.id ? styles.resultTextUnitSelected : styles.resultTextUnit}>
-          {item.name}
-        </Text>
-        <Text style={styles.resultTextValue}>
-          {toLocaleTimeString(item.id)}
-        </Text>
-      </View>
-    </View>
-  );
-  
-  const renderCurrencyItem = ({ item, index }) => (
-    <View key={index} style={styles.resultsContainer}>
-      {index === 0 && <Text style={styles.footer}>Updated {item.date}</Text>}
-      <View style={index % 2 === 1 ? styles.resultRowOdd : styles.resultRowEven}>
-        <Text style={ props.unitId === item.id ? styles.resultTextUnitSelected : styles.resultTextUnit}>
-          {item.name}
-        </Text>
-        <Text style={styles.resultTextValue}>
-          {parseCurrencyResult(item.rate, props.input, props.precision)}
-        </Text>
-      </View>
-    </View>
-  );
+    );
+  };
   
   const toTop = () => {
-    flatlistRef.current &&
-    flatlistRef.current.scrollToOffset({ y: 0, animated: false });
-  }
+    if (flatlistRef.current)
+      flatlistRef.current.scrollToOffset({ y: 0, animated: false });
+  };
 
   if (props.scrollToTop) toTop();
 
@@ -78,7 +61,7 @@ const ResultsView = (props) => {
         <ActivityIndicator size='large' color='#ff850d' />
       </View>
     );
-  }
+  };
 
   if (props.error) {
     const keys = Object.keys(props.error)
@@ -90,18 +73,15 @@ const ResultsView = (props) => {
         })}
       </View>
     );
-  }
+  };
   
   return (
     <FlatList ref={flatlistRef}
       data={props.data}
       initialNumToRender={15}
       keyExtractor={(item) => item.id}
-      renderItem={
-        props.measure === MeasureTypes.CURRENCY ? renderCurrencyItem :
-        props.measure === MeasureTypes.TIMEZONE ? renderTimezoneItem :
-        props.measure === MeasureTypes.NUMERAL ? renderNumeralItem :
-        renderItem}
+      renderItem={renderItem}
+      ListHeaderComponent={renderHeader}
     />
   );
 };
