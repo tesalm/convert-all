@@ -13,6 +13,7 @@ const styles = StyleSheet.create({
     marginBottom: 7
   },
   inputRow2: {
+    alignItems: "center",
     flexDirection: 'row',
     justifyContent: 'space-between',
     marginBottom: 10
@@ -20,7 +21,7 @@ const styles = StyleSheet.create({
   textInput: {
     flex: 1,
     textAlign: 'center',
-    height: 50,
+    height: 48,
     color: '#000',
     paddingHorizontal: 6,
     backgroundColor: light_gray,
@@ -78,7 +79,7 @@ const styles = StyleSheet.create({
   },
   cancelButton: {
     backgroundColor: light_gray,
-    height: 50,
+    height: 48,
     width: 60,
     justifyContent: 'center',
     alignItems: 'center',
@@ -121,7 +122,7 @@ const styles = StyleSheet.create({
     borderBottomLeftRadius: 9,
     borderTopLeftRadius: 9,
     width: 50,
-    height: 50,
+    height: 48,
     justifyContent: 'center',
     alignItems: 'center'
   },
@@ -144,7 +145,7 @@ const styles = StyleSheet.create({
   },
   precisionPicker: {
     width: 110,
-    marginLeft: 6
+    marginLeft: 6,
   },
   text: {
     color: '#eef2ff',

@@ -22,9 +22,9 @@ const removeZeroes = (str) => {
   return str.replace(/(\.[0-9]*[1-9])0*|(\.0*)/, "$1");
 }
 
-const parseResult = (equation_str, input, precision) => {
-  if (!input) input = '0';
-  const n = input;
+const parseResult = (equation_temp_str, input, precision) => {
+  if (isNaN(input)) input = '1';
+  const equation_str = equation_temp_str.replace('n', input || '0');
   var result = parseFloat(eval(equation_str));
   result = removeZeroes(result.toPrecision(precision));
   result = resultWithSpaces(result);

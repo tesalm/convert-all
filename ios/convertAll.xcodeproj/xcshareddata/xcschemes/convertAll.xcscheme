@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "1130"
+   LastUpgradeVersion = "1210"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-               BuildableName = "convertAll.app"
-               BlueprintName = "convertAll"
-               ReferencedContainer = "container:convertAll.xcodeproj">
+               BuildableName = "ConvertAll.app"
+               BlueprintName = "ConvertAll"
+               ReferencedContainer = "container:ConvertAll.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -33,9 +33,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "00E356ED1AD99517003FC87E"
-               BuildableName = "convertAllTests.xctest"
-               BlueprintName = "convertAllTests"
-               ReferencedContainer = "container:convertAll.xcodeproj">
+               BuildableName = "ConvertAllTests.xctest"
+               BlueprintName = "ConvertAllTests"
+               ReferencedContainer = "container:ConvertAll.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -55,9 +55,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-            BuildableName = "convertAll.app"
-            BlueprintName = "convertAll"
-            ReferencedContainer = "container:convertAll.xcodeproj">
+            BuildableName = "ConvertAll.app"
+            BlueprintName = "ConvertAll"
+            ReferencedContainer = "container:ConvertAll.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </LaunchAction>
@@ -72,9 +72,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-            BuildableName = "convertAll.app"
-            BlueprintName = "convertAll"
-            ReferencedContainer = "container:convertAll.xcodeproj">
+            BuildableName = "ConvertAll.app"
+            BlueprintName = "ConvertAll"
+            ReferencedContainer = "container:ConvertAll.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

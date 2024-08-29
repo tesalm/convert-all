@@ -1,18 +1,16 @@
-import React from 'react';
+import { useRef } from 'react';
 import { ActivityIndicator, FlatList, Text, View } from 'react-native';
-
 import { styles } from '../styles';
 import { inputToNumeral } from '../util/numerals';
 import { parseCurrencyResult, parseResult } from '../util/parser';
-import { toLocaleTimeString } from '../util/timezone';
 import { MeasureTypes } from '../general/measure-types';
 
 
 const ResultsView = (props) => {
-  const flatlistRef = React.useRef();
+  const flatlistRef = useRef();
 
   const result = (item) => {
-    const {input, precision, unitId, measure} = props;
+    const {input, precision, unitId, measure, toLocaleTimeString} = props;
     switch (measure) {
       case MeasureTypes.CURRENCY:
         return parseCurrencyResult(item.rate, input, precision);
@@ -28,9 +26,7 @@ const ResultsView = (props) => {
   const renderHeader = () => {
     const {data, measure} = props;
     if (measure === MeasureTypes.CURRENCY)
-      return (
-        <Text style={styles.footer}>Updated  {data[0].date}</Text>
-      );
+      return <Text style={styles.footer}>Updated {data[0].date}</Text>;
     return null;
   };
 
@@ -48,10 +44,8 @@ const ResultsView = (props) => {
     );
   };
   
-  const toTop = () => {
-    if (flatlistRef.current)
-      flatlistRef.current.scrollToOffset({ y: 0, animated: false });
-  };
+  const toTop = () =>
+    flatlistRef.current?.scrollToOffset({y: 0, animated: false});
 
   if (props.scrollToTop) toTop();
 

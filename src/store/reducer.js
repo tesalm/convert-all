@@ -2,7 +2,7 @@ import { ActionTypes } from './constants';
 import { parseJSONtoFlatlist } from '../util/parser';
 import quantitysJson from '../../assets/quantity.json';
 
-const initialState = {
+export const initialState = {
   input: '1',
   unitId: 'MET',
   quantJson: quantitysJson.length,
